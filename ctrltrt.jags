@@ -1,0 +1,14 @@
+model{
+	for(i in 1:n1){
+		trt[i] ~ dnorm(mu1, tau1)
+	}
+	for(i in 1:n2){
+		ctrl[i] ~ dnorm(mu2, tau2)
+	}
+	mu1 ~ dnorm(0, .000001)
+	tau1 ~ dexp(.01)
+	mu2 ~ dnorm(0, .000001)
+	tau2 ~ dexp(.01)
+	sig1 <- 1.0/sqrt(tau1)
+	sig2 <- 1.0/sqrt(tau2)
+}
